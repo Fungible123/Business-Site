@@ -1,11 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Kiss & Makeup`,
+    description: `A basic ecommerce site with a search and filter function that collects data from an API.`,
+    author: `Donny Layug`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`caveat`, `arial`],
+        display: `swap`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,17 +26,23 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Kiss & Makeup`,
+        short_name: `K&M`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `white`,
+        theme_color: `black`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": path.resolve(__dirname, "src/components"),
+          "@images": path.resolve(__dirname, "src/images"),
+          "@styles": path.resolve(__dirname, "src/styles/"),
+        },
+      },
+    },
   ],
 }
