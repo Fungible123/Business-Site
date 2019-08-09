@@ -3,7 +3,6 @@ import styled from "styled-components"
 export const Container = styled.div`
   max-width: 1400px;
   width: 100%;
-  margin: 0px 112px;
   padding: 0;
 
   @media (min-width: ${props => props.theme.screen.xs}) {
@@ -21,10 +20,16 @@ export const Container = styled.div`
   @media (min-width: ${props => props.theme.screen.lg}) {
     max-width: 1350px;
   }
+
+  ${props =>
+    props.fluid &&
+    `max-width: 1200px !important;
+    `}
 `
 
 export const Section = styled.section`
   padding: 0;
+  margin: 0 112px;
   overflow: hidden;
   @media (max-width: ${props => props.theme.screen.md}) {
     padding: 0;

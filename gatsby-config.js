@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Kiss & Makeup`,
@@ -10,7 +12,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`caveat`, `arial`],
+        fonts: [`caveat\:700`, `arial`],
         display: `swap`,
       },
     },
@@ -40,8 +42,27 @@ module.exports = {
         alias: {
           "@components": path.resolve(__dirname, "src/components"),
           "@images": path.resolve(__dirname, "src/images"),
-          "@styles": path.resolve(__dirname, "src/styles/"),
+          "@styles": path.resolve(__dirname, "src/styles"),
         },
+      },
+    },
+    {
+      resolve: "gatsby-source-apiserver",
+      options: {
+        url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        typePrefix: "internal__",
+        name: `posts`,
+        params: {
+          results: 10,
+        },
+        verboseOutput: true,
+        schemaType: postType,
+        payloadKey: `body`,
+        refreshId: `id`,
       },
     },
   ],
