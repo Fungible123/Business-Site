@@ -6,7 +6,6 @@ import theme from "@styles/theme"
 import GlobalStyles from "@styles/global"
 
 import Header from "./header"
-import Blush from "./blush"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,7 +23,6 @@ const Layout = ({ children }) => {
         <GlobalStyles />
         <Header siteTitle={data.site.siteMetadata.title} />
         {children}
-        <Blush />
       </>
     </ThemeProvider>
   )

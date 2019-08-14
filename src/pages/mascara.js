@@ -1,17 +1,19 @@
 import React from "react"
-import Layout from "@components/layout"
-import SEO from "@components/seo"
 import { useStaticQuery, graphql } from "gatsby"
+import Layout from "@components/layout"
 import {
   Section,
   ProductContainer,
   InternalContainer,
 } from "@styles/containers"
 
-const IndexPage = () => {
+const Mascara = () => {
   const product = useStaticQuery(graphql`
     query {
-      allInternalPosts(limit: 12) {
+      mascara: allInternalPosts(
+        limit: 12
+        filter: { product_type: { eq: "mascara" } }
+      ) {
         edges {
           node {
             api_featured_image
@@ -24,12 +26,12 @@ const IndexPage = () => {
       }
     }
   `)
+
   return (
     <Layout>
-      <SEO title="Home" />
       <Section>
         <InternalContainer>
-          {product.allInternalPosts.edges.map(({ node }, ...index) => (
+          {product.mascara.edges.map(({ node }, ...index) => (
             <ProductContainer key={index}>
               <ul>
                 <li>
@@ -50,4 +52,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default Mascara

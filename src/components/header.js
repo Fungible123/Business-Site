@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Container, Section } from "@styles/containers"
 import styled from "styled-components"
@@ -26,7 +26,9 @@ const Header = () => {
   return (
     <Container>
       <Section>
-        <Logo fluid={data.logo.childImageSharp.fluid} />
+        <Link to="/">
+          <Logo fluid={data.logo.childImageSharp.fluid} />
+        </Link>
         <Navigation />
       </Section>
     </Container>

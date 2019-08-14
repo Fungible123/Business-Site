@@ -24,25 +24,29 @@ const Item = styled(Link)`
   h2:hover {
     color: ${props => props.theme.color.red.primary};
   }
+
+  &.active h2 {
+    color: ${props => props.theme.color.red.primary};
+  }
 `
 
 const Navigation = () => {
   return (
     <Nav>
       <Menu>
-        <Item to="/">
+        <Item to="/blush/" activeClassName="active">
           <h2>Blush</h2>
         </Item>
-        <Item to="/">
+        <Item to="/eyeliner/" activeClassName="active">
           <h2>Eyeliner</h2>
         </Item>
-        <Item to="/">
+        <Item to="/foundation/" activeClassName="active">
           <h2>Foundation</h2>
         </Item>
-        <Item to="/">
+        <Item to="/lipstick/" activeClassName="active">
           <h2>Lipstick</h2>
         </Item>
-        <Item to="/">
+        <Item to="/mascara/" activeClassName="active">
           <h2>Mascara</h2>
         </Item>
       </Menu>

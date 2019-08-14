@@ -33,6 +33,11 @@ const GlobalStyles = createGlobalStyle`
         ${props => props.theme.font_size.regular}
     }
 
+    li {
+        font-family: ${props => props.theme.font.primary};
+        ${props => props.theme.font_size.small}
+    }
+
     span {
         font-family: ${props => props.theme.font.primary};
         ${props => props.theme.font_size.small}
