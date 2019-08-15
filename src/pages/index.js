@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "@components/layout"
 import SEO from "@components/seo"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import {
   Section,
   ProductContainer,
@@ -29,17 +29,22 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Section>
         <InternalContainer>
-          {product.allInternalPosts.edges.map(({ node }, ...index) => (
+          {product.allInternalPosts.edges.map((edge, ...index) => (
             <ProductContainer key={index}>
               <ul>
                 <li>
-                  <img src={node.api_featured_image} alt={`${node.name}`} />
+                  <Link to={`/product/${edge.node.id}`}>
+                    <img
+                      src={edge.node.api_featured_image}
+                      alt={`${edge.node.name}`}
+                    />
+                  </Link>
                 </li>
-                <li>{node.brand}</li>
-                <li>{node.name}</li>
+                <li>{edge.node.brand}</li>
+                <li>{edge.node.name}</li>
                 <li>
-                  {node.price_sign}
-                  {node.price}
+                  {edge.node.price_sign}
+                  {edge.node.price}
                 </li>
               </ul>
             </ProductContainer>
