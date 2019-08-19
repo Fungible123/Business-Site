@@ -1,6 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Layout from "@components/layout"
+import SEO from "@components/seo"
 import {
   Section,
   ProductContainer,
@@ -21,6 +22,9 @@ const Mascara = () => {
             name
             price_sign
             price
+            fields {
+              slug
+            }
           }
         }
       }
@@ -29,13 +33,16 @@ const Mascara = () => {
 
   return (
     <Layout>
+      <SEO title="Mascara" />
       <Section>
         <InternalContainer>
           {product.mascara.edges.map(({ node }, ...index) => (
             <ProductContainer key={index}>
               <ul>
                 <li>
-                  <img src={node.api_featured_image} alt={`${node.name}`} />
+                  <Link to={`/products/${node.fields.slug}`}>
+                    <img src={node.api_featured_image} alt={`${node.name}`} />
+                  </Link>
                 </li>
                 <li>{node.brand}</li>
                 <li>{node.name}</li>

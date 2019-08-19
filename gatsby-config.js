@@ -61,6 +61,7 @@ module.exports = {
           results: 10,
         },
         verboseOutput: true,
+        skipCreateNode: false,
       },
     },
   ],

@@ -1,29 +1,41 @@
 const path = require("path")
 
+module.exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === "internal__posts") {
+    const slug = path.basename(node.id)
+
+    createNodeField({
+      node,
+      name: "slug",
+      value: slug,
+    })
+  }
+}
+
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  // 1. Get path to template
-  const productTemplate = path.resolve(`./src/templates/productDisplay.js`)
-  // 2. Get markdown data
+  const productTemplate = path.resolve("./src/templates/products.js")
   const res = await graphql(`
     query {
       allInternalPosts {
         edges {
           node {
-            id
+            fields {
+              slug
+            }
           }
         }
       }
     }
   `)
-
-  // 3. Create new pages
   res.data.allInternalPosts.edges.forEach(edge => {
     createPage({
       component: productTemplate,
-      path: `/product/${edge.node.id}`,
+      path: `/products/${edge.node.fields.slug}`,
       context: {
-        id: edge.node.id,
+        slug: edge.node.fields.slug,
       },
     })
   })

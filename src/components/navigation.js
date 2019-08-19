@@ -12,11 +12,14 @@ const Nav = styled.nav`
 const Menu = styled.div`
   display: flex;
   flex-direction: row;
+  max-width: 672px;
+  margin: 0 auto;
+  justify-content: center;
 `
 
 const Item = styled(Link)`
   text-decoration: none;
-  margin: 10px;
+  margin: 10px 20px;
 
   h2 {
     transition: 0.2s ease-in-out;

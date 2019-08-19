@@ -19,6 +19,9 @@ const IndexPage = () => {
             name
             price_sign
             price
+            fields {
+              slug
+            }
           }
         }
       }
@@ -33,7 +36,7 @@ const IndexPage = () => {
             <ProductContainer key={index}>
               <ul>
                 <li>
-                  <Link to={`/product/${edge.node.id}`}>
+                  <Link to={`/products/${edge.node.fields.slug}`}>
                     <img
                       src={edge.node.api_featured_image}
                       alt={`${edge.node.name}`}

@@ -6,6 +6,7 @@ import theme from "@styles/theme"
 import GlobalStyles from "@styles/global"
 
 import Header from "./header"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
         <GlobalStyles />
         <Header siteTitle={data.site.siteMetadata.title} />
         {children}
+        <Footer />
       </>
     </ThemeProvider>
   )
