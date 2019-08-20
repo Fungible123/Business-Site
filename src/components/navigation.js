@@ -7,6 +7,9 @@ const Nav = styled.nav`
   max-height: 67px;
   border-top: 1px solid #fa5959;
   border-bottom: 1px solid #fa5959;
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    max-width: 100%;
+  }
 `
 
 const Menu = styled.div`
@@ -20,9 +23,15 @@ const Menu = styled.div`
 const Item = styled(Link)`
   text-decoration: none;
   margin: 10px 20px;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    margin: 10px 15px;
+  }
 
   h2 {
     transition: 0.2s ease-in-out;
+    @media (max-width: ${props => props.theme.screen.sm}) {
+      ${props => props.theme.font_size.small}
+    }
   }
   h2:hover {
     color: ${props => props.theme.color.red.primary};

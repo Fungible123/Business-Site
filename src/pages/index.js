@@ -3,6 +3,7 @@ import Layout from "@components/layout"
 import SEO from "@components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import {
+  Container,
   Section,
   ProductContainer,
   InternalContainer,
@@ -30,30 +31,32 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Section>
-        <InternalContainer>
-          {product.allInternalPosts.edges.map((edge, ...index) => (
-            <ProductContainer key={index}>
-              <ul>
-                <li>
-                  <Link to={`/products/${edge.node.fields.slug}`}>
-                    <img
-                      src={edge.node.api_featured_image}
-                      alt={`${edge.node.name}`}
-                    />
-                  </Link>
-                </li>
-                <li>{edge.node.brand}</li>
-                <li>{edge.node.name}</li>
-                <li>
-                  {edge.node.price_sign}
-                  {edge.node.price}
-                </li>
-              </ul>
-            </ProductContainer>
-          ))}
-        </InternalContainer>
-      </Section>
+      <Container>
+        <Section>
+          <InternalContainer>
+            {product.allInternalPosts.edges.map((edge, ...index) => (
+              <ProductContainer key={index}>
+                <ul>
+                  <li>
+                    <Link to={`/products/${edge.node.fields.slug}`}>
+                      <img
+                        src={edge.node.api_featured_image}
+                        alt={`${edge.node.name}`}
+                      />
+                    </Link>
+                  </li>
+                  <li>{edge.node.brand}</li>
+                  <li>{edge.node.name}</li>
+                  <li>
+                    {edge.node.price_sign}
+                    {edge.node.price}
+                  </li>
+                </ul>
+              </ProductContainer>
+            ))}
+          </InternalContainer>
+        </Section>
+      </Container>
     </Layout>
   )
 }

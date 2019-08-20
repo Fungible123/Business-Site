@@ -33,6 +33,11 @@ export const Section = styled.section`
   overflow: hidden;
   @media (max-width: ${props => props.theme.screen.md}) {
     padding: 0;
+    margin: 0 100px;
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding: 0;
+    margin: 0 50px;
   }
 `
 
@@ -41,6 +46,14 @@ export const InternalContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   margin: 40px 0;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ProductContainer = styled.div`

@@ -16,6 +16,14 @@ const CardContainer = styled.div`
   grid-gap: 10px;
   justify-items: center;
   margin: 100px 0;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 `
 
 const SocialCards = styled.div`
@@ -34,6 +42,9 @@ const SocialCards = styled.div`
     text-decoration: none;
     ${props => props.theme.font_size.small};
     color: ${props => props.theme.color.dark.secondary};
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    margin-bottom: 20px;
   }
 `
 

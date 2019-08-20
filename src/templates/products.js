@@ -22,18 +22,46 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 40px;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    h1 {
+      font-weight: bold;
+      ${props => props.theme.font_size.regular}
+    }
+    h2 {
+      ${props => props.theme.font_size.small}
+    }
+    p {
+      ${props => props.theme.font_size.small}
+    }
+  }
 `
 
 const Image = styled.img`
   max-width: 400px;
   max-height: 300px;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    max-width: 300px;
+    max-height: 200px;
+  }
 `
 
 const Description = styled.div`
   max-width: 672px;
   margin: 50px auto;
+  p {
+    text-align: justify;
+  }
   h1 {
     margin-bottom: 20px;
+  }
+  @media (max-width: ${props => props.theme.screen.md}) {
+    h1 {
+      font-weight: bold;
+      ${props => props.theme.font_size.regular}
+    }
+    p {
+      ${props => props.theme.font_size.small}
+    }
   }
 `
 
