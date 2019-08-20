@@ -7,9 +7,6 @@ const Nav = styled.nav`
   max-height: 67px;
   border-top: 1px solid #fa5959;
   border-bottom: 1px solid #fa5959;
-  @media (max-width: ${props => props.theme.screen.xs}) {
-    max-width: 100%;
-  }
 `
 
 const Menu = styled.div`
@@ -25,6 +22,9 @@ const Item = styled(Link)`
   margin: 10px 20px;
   @media (max-width: ${props => props.theme.screen.sm}) {
     margin: 10px 15px;
+  }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    margin: 10px 6px;
   }
 
   h2 {

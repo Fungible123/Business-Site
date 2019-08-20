@@ -34,6 +34,9 @@ const ContentContainer = styled.div`
       ${props => props.theme.font_size.small}
     }
   }
+  @media (max-width: ${props => props.theme.screen.md}) {
+    margin-left: 10px;
+  }
 `
 
 const Image = styled.img`
@@ -42,6 +45,10 @@ const Image = styled.img`
   @media (max-width: ${props => props.theme.screen.md}) {
     max-width: 300px;
     max-height: 200px;
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    max-width: 280px;
+    max-height: 150px;
   }
 `
 
@@ -62,6 +69,9 @@ const Description = styled.div`
     p {
       ${props => props.theme.font_size.small}
     }
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    margin: 50px 10px;
   }
 `
 

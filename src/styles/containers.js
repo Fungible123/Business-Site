@@ -39,6 +39,9 @@ export const Section = styled.section`
     padding: 0;
     margin: 0 50px;
   }
+  @media (max-width: ${props => props.theme.screen.xs}) {
+    margin: 5px;
+  }
 `
 
 export const InternalContainer = styled.div`
