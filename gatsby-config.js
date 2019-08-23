@@ -34,6 +34,7 @@ module.exports = {
         background_color: `white`,
         theme_color: `black`,
         display: `minimal-ui`,
+        icon: `src/images/kissandmakeup.png`,
       },
     },
     {
