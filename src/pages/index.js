@@ -8,10 +8,7 @@ import Menu from "@components/menu"
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO
-        title="Home"
-        keywords={[`gatsby`, `business`, `react`, `ecommerce`]}
-      />
+      <SEO title="Home" />
       <Container>
         <Section>
           <Menu items={data.menu} />
