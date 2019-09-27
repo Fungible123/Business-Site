@@ -1,7 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "@components/layout"
-import SEO from "@components/seo"
 import { Container, Section } from "@styles/containers"
 import styled from "styled-components"
 
@@ -75,6 +74,13 @@ const Description = styled.div`
   }
 `
 
+const Button = styled.button`
+  width: 100px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+`
+
 export const query = graphql`
   query MyQuery2($slug: String!) {
     internalPosts(fields: { slug: { eq: $slug } }) {
@@ -91,7 +97,6 @@ export const query = graphql`
 const Products = props => {
   return (
     <Layout>
-      <SEO title={props.data.internalPosts.name} />
       <Container>
         <Section>
           <Content>
@@ -108,6 +113,11 @@ const Products = props => {
                 {props.data.internalPosts.price_sign}
                 {props.data.internalPosts.price}
               </p>
+
+              <Button>Add to cart</Button>
+              <Link to="/" style={{ textDecoration: "none", color: "#FA5959" }}>
+                &#8592;Home
+              </Link>
             </ContentContainer>
           </Content>
 

@@ -1,64 +1,45 @@
 import React from "react"
 import Layout from "@components/layout"
 import SEO from "@components/seo"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import {
-  Container,
-  Section,
-  ProductContainer,
-  InternalContainer,
-} from "@styles/containers"
+import { graphql } from "gatsby"
+import { Container, Section } from "@styles/containers"
+import Menu from "@components/menu"
 
-const IndexPage = () => {
-  const product = useStaticQuery(graphql`
-    query {
-      allInternalPosts(limit: 12) {
-        edges {
-          node {
-            api_featured_image
-            brand
-            name
-            price_sign
-            price
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
+const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        keywords={[`gatsby`, `business`, `react`, `ecommerce`]}
+      />
       <Container>
         <Section>
-          <InternalContainer>
-            {product.allInternalPosts.edges.map((edge, ...index) => (
-              <ProductContainer key={index}>
-                <ul>
-                  <li>
-                    <Link to={`/products/${edge.node.fields.slug}`}>
-                      <img
-                        src={edge.node.api_featured_image}
-                        alt={`${edge.node.name}`}
-                      />
-                    </Link>
-                  </li>
-                  <li>{edge.node.brand}</li>
-                  <li>{edge.node.name}</li>
-                  <li>
-                    {edge.node.price_sign}
-                    {edge.node.price}
-                  </li>
-                </ul>
-              </ProductContainer>
-            ))}
-          </InternalContainer>
+          <Menu items={data.menu} />
         </Section>
       </Container>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    menu: allInternalPosts(limit: 50) {
+      edges {
+        node {
+          id
+          api_featured_image
+          brand
+          name
+          price_sign
+          price
+          product_type
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

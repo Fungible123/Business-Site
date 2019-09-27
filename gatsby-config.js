@@ -58,9 +58,6 @@ module.exports = {
         },
         typePrefix: "internal__",
         name: `posts`,
-        params: {
-          results: 10,
-        },
         verboseOutput: true,
         skipCreateNode: false,
       },

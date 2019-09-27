@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Container, Section } from "@styles/containers"
 import styled from "styled-components"
-import Navigation from "./navigation"
+// import Navigation from "./navigation"
 
 const Logo = styled(Img)`
   max-width: 672px;
@@ -29,7 +29,7 @@ const Header = () => {
         <Link to="/">
           <Logo fluid={data.logo.childImageSharp.fluid} />
         </Link>
-        <Navigation />
+        {/* <Navigation /> */}
       </Section>
     </Container>
   )

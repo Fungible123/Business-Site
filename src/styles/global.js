@@ -28,6 +28,11 @@ const GlobalStyles = createGlobalStyle`
         ${props => props.theme.font_size.regular}
     }
 
+    h3 {
+        font-family: ${props => props.theme.font.secondary};
+        color: ${props => props.theme.color.dark.primary};
+    }
+
     p {
         font-family: ${props => props.theme.font.primary};
         ${props => props.theme.font_size.regular}
